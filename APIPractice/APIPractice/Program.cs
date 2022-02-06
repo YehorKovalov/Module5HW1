@@ -1,1 +1,4 @@
-﻿Console.WriteLine("Hello World!");
+﻿using APIPractice;
+
+var startup = new Startup();
+await startup.Run();
