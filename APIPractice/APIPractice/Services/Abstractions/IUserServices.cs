@@ -7,7 +7,7 @@ namespace APIPractice.Services.Abstractions
 {
     public interface IUserServices
     {
-        Task<IEnumerable<User>> GetUsersOrNull();
+        Task<IEnumerable<User>> GetUsersOrNull(string query);
         Task<User> GetUserByIdOrNull(int id);
         Task<UserDetailDTO> CreateUser(UserDetailDTO user);
         Task<UserDetailDTO> PutUpdateUser(UserDetailDTO user);

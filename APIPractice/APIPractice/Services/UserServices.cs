@@ -18,9 +18,9 @@ namespace APIPractice.Services
             _siteUrl = _configurationServices.TestAPISite;
         }
 
-        public async Task<IEnumerable<User>> GetUsersOrNull()
+        public async Task<IEnumerable<User>> GetUsersOrNull(string query)
         {
-            var response = await GetAsyncOrNull<PageResponse<List<User>>>($"{_siteUrl}/api/users?page=2");
+            var response = await GetAsyncOrNull<PageResponse<List<User>>>($"{_siteUrl}/api/users?{query}");
             return response?.Data;
         }
 

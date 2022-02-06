@@ -59,7 +59,7 @@ namespace APIPractice
             };
 
             var taskList = new List<Task>();
-            taskList.Add(_userServices.GetUsersOrNull());
+            taskList.Add(_userServices.GetUsersOrNull("page=2"));
             taskList.Add(_userServices.GetUserByIdOrNull(2));
             taskList.Add(_userServices.GetUserByIdOrNull(23));
             taskList.Add(_userServices.CreateUser(userForCreating));
@@ -76,6 +76,8 @@ namespace APIPractice
 
             taskList.Add(_userAccountServices.RegisterUserAccountOrNull(accountForUnsuccessfulRegistration));
             taskList.Add(_userAccountServices.LoginOrNull(accountForUnsuccessfulLogin));
+
+            taskList.Add(_userServices.GetUsersOrNull("delay=3"));
 
             await Task.WhenAll(taskList);
         }
