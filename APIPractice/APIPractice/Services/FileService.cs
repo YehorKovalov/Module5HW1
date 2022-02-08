@@ -4,7 +4,7 @@ using APIPractice.Services.Abstractions;
 
 namespace APIPractice.Services
 {
-    public class FileServices : IFileServices
+    public class FileService : IFileService
     {
         public async Task<string> ReadAllTestAsyncOrNull(string path)
         {
