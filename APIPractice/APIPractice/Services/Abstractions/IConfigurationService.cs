@@ -2,7 +2,7 @@
 
 namespace APIPractice.Services.Abstractions
 {
-    public interface IConfigurationServices
+    public interface IConfigurationService
     {
         public Config Config { get; }
         public URL URL { get; }

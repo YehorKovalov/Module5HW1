@@ -7,6 +7,6 @@ namespace APIPractice.Models.Responces
         [JsonPropertyName("data")]
         public T Data { get; set; }
         [JsonPropertyName("support")]
-        public Support Support { get; set; }
+        public SupportDTO Support { get; set; }
     }
 }

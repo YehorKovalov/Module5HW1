@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using APIPractice.Models;
+using APIPractice.Models.Requests;
 using APIPractice.Models.Responces;
 using APIPractice.Services.Abstractions;
 
@@ -8,13 +9,13 @@ namespace APIPractice
 {
     public class Application
     {
-        private readonly IUserServices _userServices;
-        private readonly IResourceServices _resourceServices;
-        private readonly IUserAccountServices _userAccountServices;
+        private readonly IUserService _userServices;
+        private readonly IResourceService _resourceServices;
+        private readonly IUserAccountService _userAccountServices;
         public Application(
-            IUserServices userServices,
-            IResourceServices resourceServices,
-            IUserAccountServices userAccountServices)
+            IUserService userServices,
+            IResourceService resourceServices,
+            IUserAccountService userAccountServices)
         {
             _userServices = userServices;
             _resourceServices = resourceServices;
@@ -23,37 +24,36 @@ namespace APIPractice
 
         public async Task Run()
         {
-            var userForUpdating = new UserDetailDTO
+            var userForUpdating = new UserUpdatingRequest
             {
-                Id = 2,
                 Name = "morpheus",
                 Job = "zion resident",
             };
 
-            var userForCreating = new UserDetailDTO
+            var userForCreating = new UserCreatingRequest
             {
                 Name = "morpheus",
                 Job = "leader"
             };
 
-            var accountForSuccessfulRegistration = new UserAccount
+            var accountForSuccessfulRegistration = new UserAccountDTO
             {
                 Email = "eve.holt@reqres.in",
                 Password = "pistol"
             };
 
-            var accountForSuccessfulLogin = new UserAccount
+            var accountForSuccessfulLogin = new UserAccountDTO
             {
                 Email = "eve.holt@reqres.in",
                 Password = "cityslicka"
             };
 
-            var accountForUnsuccessfulRegistration = new UserAccount
+            var accountForUnsuccessfulRegistration = new UserAccountDTO
             {
                 Email = "sydney@fife",
             };
 
-            var accountForUnsuccessfulLogin = new UserAccount
+            var accountForUnsuccessfulLogin = new UserAccountDTO
             {
                 Email = "peter@klaven",
             };
@@ -65,7 +65,7 @@ namespace APIPractice
             taskList.Add(_userServices.CreateUser(userForCreating));
             taskList.Add(_userServices.PutUpdateUser(userForUpdating));
             taskList.Add(_userServices.PatchUpdateUser(userForUpdating));
-            taskList.Add(_userServices.DeleteUser(2));
+            taskList.Add(_userServices.DeleteUserOrNull(2));
 
             taskList.Add(_resourceServices.GetResourcesOrNull());
             taskList.Add(_resourceServices.GetResourceByIdOrNull(2));

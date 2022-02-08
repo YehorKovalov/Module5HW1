@@ -2,7 +2,7 @@
 
 namespace APIPractice.Services.Abstractions
 {
-    public interface IFileServices
+    public interface IFileService
     {
         Task<string> ReadAllTestAsyncOrNull(string path);
     }

@@ -2,7 +2,7 @@
 
 namespace APIPractice.Models
 {
-    public class UserAccount
+    public class UserAccountDTO
     {
         [JsonProperty("email")]
         public string Email { get; set; }

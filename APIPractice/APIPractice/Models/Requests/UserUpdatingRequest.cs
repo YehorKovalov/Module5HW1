@@ -1,9 +1,9 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace APIPractice.Models.Responces
+namespace APIPractice.Models.Requests
 {
-    public class UserDetailDTO
+    public class UserUpdatingRequest
     {
         [JsonProperty("id")]
         public int Id { get; set; }
@@ -13,11 +13,5 @@ namespace APIPractice.Models.Responces
 
         [JsonProperty("job")]
         public string Job { get; set; }
-
-        [JsonProperty("createdAt")]
-        public DateTimeOffset CreationTime { get; set; }
-
-        [JsonProperty("updatedAt")]
-        public DateTimeOffset UpdatingTime { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace APIPractice.Models
+namespace APIPractice.Models.Responces
 {
     public class ErrorResponse
     {

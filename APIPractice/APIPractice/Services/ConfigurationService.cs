@@ -5,13 +5,13 @@ using Newtonsoft.Json;
 
 namespace APIPractice.Services
 {
-    public class ConfigurationServices : IConfigurationServices
+    public class ConfigurationService : IConfigurationService
     {
         private const string ConfigPath = "appsettings.json";
-        private readonly IFileServices _fileServices;
+        private readonly IFileService _fileServices;
         private Config _config;
 
-        public ConfigurationServices(IFileServices fileServices)
+        public ConfigurationService(IFileService fileServices)
         {
             _fileServices = fileServices;
             Init().GetAwaiter().GetResult();

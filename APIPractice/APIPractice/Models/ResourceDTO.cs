@@ -2,7 +2,7 @@
 
 namespace APIPractice.Models
 {
-    public class Resource
+    public class ResourceDTO
     {
         [JsonProperty("id")]
         public int Id { get; set; }
