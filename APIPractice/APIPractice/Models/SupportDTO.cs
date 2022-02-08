@@ -2,7 +2,7 @@
 
 namespace APIPractice.Models
 {
-    public class Support
+    public class SupportDTO
     {
         [JsonProperty("url")]
         public string Url { get; set; }
