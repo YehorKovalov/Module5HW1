@@ -18,11 +18,12 @@ namespace APIPractice
         public IServiceProvider ConfigureServices()
         {
             var services = new ServiceCollection();
-            services.AddTransient<IFileServices, FileServices>();
-            services.AddSingleton<IConfigurationServices, ConfigurationServices>();
-            services.AddTransient<IUserServices, UserServices>();
-            services.AddTransient<IResourceServices, ResourceServices>();
-            services.AddTransient<IUserAccountServices, UserAccountServices>();
+            services.AddTransient<IFileService, FileService>();
+            services.AddSingleton<IConfigurationService, ConfigurationService>();
+            services.AddSingleton<IHttpService, HttpService>();
+            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IResourceService, ResourceService>();
+            services.AddTransient<IUserAccountService, AuthService>();
             services.AddTransient<Application>();
             return services.BuildServiceProvider();
         }
